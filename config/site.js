@@ -20,7 +20,7 @@ export const DOMAIN_CONFIGS = {
     email: 'hello@tamilandroptaxi.com',
     address: 'Tamil Nadu, India',
     established: '2015',
-    googleAdsId: 'AW-18168765995',
+    googleAdsId: 'AW-18280882706',
     googleAdsConversionLabel: 'epMNCKKrw64cEKu8xddD',
     ga4Id: process.env.NEXT_PUBLIC_GA4_ID || '',
     gscVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',

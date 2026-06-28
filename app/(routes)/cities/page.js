@@ -52,19 +52,19 @@ export default function CitiesPage() {
 
           {ALL_CITIES_LIST.map((city) => (
             <Link href="/book" className="city-card" key={city}>
-              <div className="city-icon">
+              <span className="city-icon">
                 <Image
                   src="/images/location-pin.png"
                   alt={city}
                   width={22}
                   height={22}
                 />
-              </div>
+              </span>
 
-              <div className="city-content">
+              <span className="city-content">
                 <h3>{city}</h3>
                 <span>Book Taxi →</span>
-              </div>
+              </span>
             </Link>
           ))}
 
