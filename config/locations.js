@@ -174,7 +174,7 @@ export const POPULAR_ROUTES = [
   { from: 'Chennai', to: 'Tiruvannamalai', price: '₹3,116', image: '/images/chn-thy.png', km: '185 km' },
   { from: 'Chennai', to: 'Tirupati', price: '₹2,262', image: '/images/chn-tpt.png', km: '140 km' },
   { from: 'Madurai', to: 'Chennai', price: '₹6,872', image: '/images/mdu-chn.png', km: '465 km' },
-  { from: 'Madurai', to: 'Coimbatore', price: '₹3,500', image: '/images/mdu-cbe.png', km: '213 km' },
+  { from: 'Madurai', to: 'Coimbatore', price: '₹3,500', image: '/images/chn-cbe.png', km: '213 km' },
   { from: 'Madurai', to: 'Tirunelveli', price: '₹2,200', image: '/images/mdu-thy.png', km: '160 km' },
 ];
 

@@ -37,9 +37,9 @@ export default function PartnerForm() {
   return (
     <div className="partner-section">
       <div style={{ textAlign: 'center', marginBottom: 48 }}>
-        <div className="section-label section-label--yellow">— Partner With Us —</div>
-        <h2 className="section-title section-title--light">Drive With {site.siteName}</h2>
-        <p className="section-sub section-sub--light">
+        <div className="section-label">— Partner With Us —</div>
+        <h2 className="section-title">Drive With {site.siteName}</h2>
+        <p className="section-sub">
           Join our growing network of 500+ drivers. Earn more, work flexibly.
         </p>
       </div>
@@ -51,21 +51,21 @@ export default function PartnerForm() {
         <form onSubmit={handleSubmit} noValidate>
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="fullName">👤 Full Name</label>
+              <label htmlFor="fullName">Full Name</label>
               <input id="fullName" type="text" name="fullName" placeholder="Your full name" required disabled={sending} />
             </div>
             <div className="form-group">
-              <label htmlFor="partnerPhone">📱 Mobile Number</label>
+              <label htmlFor="partnerPhone">Mobile Number</label>
               <input id="partnerPhone" type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required disabled={sending} />
             </div>
           </div>
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="partnerEmail">📧 Email Address</label>
+              <label htmlFor="partnerEmail">Email Address</label>
               <input id="partnerEmail" type="email" name="email" placeholder="your@email.com" disabled={sending} />
             </div>
             <div className="form-group">
-              <label htmlFor="partnerCity">📍 City / District</label>
+              <label htmlFor="partnerCity">City / District</label>
               <select id="partnerCity" name="city" required disabled={sending}>
                 <option value="Madurai">Madurai</option>
                 <option value="Chennai">Chennai</option>
@@ -78,7 +78,7 @@ export default function PartnerForm() {
           </div>
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="vehicle">🚗 Vehicle Type</label>
+              <label htmlFor="vehicle">Vehicle Type</label>
               <select id="vehicle" name="vehicle" required disabled={sending}>
                 <option value="Sedan (Dzire / Etios)">Sedan (Dzire / Etios)</option>
                 <option value="SUV (Innova)">SUV (Innova)</option>
@@ -87,7 +87,7 @@ export default function PartnerForm() {
               </select>
             </div>
             <div className="form-group">
-              <label htmlFor="experience">📅 Driving Experience</label>
+              <label htmlFor="experience">Driving Experience</label>
               <select id="experience" name="experience" required disabled={sending}>
                 <option value="1-2 years">1-2 years</option>
                 <option value="2-5 years">2-5 years</option>
@@ -96,11 +96,11 @@ export default function PartnerForm() {
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="notes">📝 About Yourself (optional)</label>
+            <label htmlFor="notes">About Yourself (optional)</label>
             <input id="notes" type="text" name="notes" placeholder="Brief description" disabled={sending} />
           </div>
           <button type="submit" className="btn-book-full" style={{ marginTop: 8 }} disabled={sending}>
-            {sending ? 'Sending…' : '🚗 Join Tamilandroptaxi'}
+            {sending ? 'Sending…' : 'Join Tamilandroptaxi Partner '}
           </button>
         </form>
       </div>

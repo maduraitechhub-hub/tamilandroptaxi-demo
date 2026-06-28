@@ -83,7 +83,7 @@ export default function ContactForm() {
           />
         </div>
         <button type="submit" className="btn-book-full" disabled={sending || form.message.trim().length < 3}>
-          {sending ? 'Sending…' : '📨 Send Message'}
+          {sending ? 'Sending…' : 'Send Message'}
         </button>
       </form>
 

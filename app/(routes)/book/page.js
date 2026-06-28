@@ -26,7 +26,6 @@ export default function BookPage() {
       <StickyLeadBar />
 
       <div className="page-hero">
-        <div className="page-hero-badge">📋 Quick Booking</div>
         <h1 className="page-hero-title">Book Your Taxi</h1>
         <p className="page-hero-sub">
           Get an instant fare estimate and confirm your booking in under 2 minutes.
@@ -35,8 +34,10 @@ export default function BookPage() {
       </div>
 
       <section className="section section--book">
-        <div className="container container--narrow">
+        <div className="container">
+          <div className='bookbg'>
           <BookingForm />
+          </div>
         </div>
       </section>
 

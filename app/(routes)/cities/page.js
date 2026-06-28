@@ -26,7 +26,6 @@ export default function CitiesPage() {
       <StickyLeadBar />
 
       <div className="page-hero">
-        <div className="page-hero-badge">🗺️ Coverage</div>
         <h1 className="page-hero-title">Cities We Serve</h1>
         <p className="page-hero-sub">
           Reliable taxi service across all major cities in Tamil Nadu.
@@ -37,58 +36,40 @@ export default function CitiesPage() {
       {/* Featured Cities */}
       <section className="section">
         <div className="container">
-          <div className="section-label">Major Hubs</div>
-          <h2 className="section-title">Taxi Service Across <span>Tamil Nadu</span></h2>
-          <p className="section-sub">
+          <h2 className="section-title">
+            38 Districts, One <span>Trusted Service</span>
+          </h2>
+          <p className="">
             From major metro cities to smaller towns, we provide reliable taxi services
             with the same trusted quality and safe travel experience.
           </p>
-
-          <div className="cities-grid">
-            {CITIES.map((city) => (
-              <Link key={city.slug} href={`/taxi/${city.slug}`} className="city-card">
-                <div className="city-img">
-                  <Image src={city.image} alt={`${city.name} Drop Taxi`} width={120} height={120} />
-                </div>
-                <div className="city-body">
-                  <div className="city-name">{city.name}</div>
-                  <div className="city-info">{city.description}</div>
-                  <div className="city-routes">🗺️ {city.routes} routes</div>
-                  <span className="btn-city">Book Taxi Here →</span>
-                </div>
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
 
       {/* All Cities Grid */}
-      <section className="section section--alt">
-        <div className="container">
-          <div className="section-label">All Districts</div>
-          <h2 className="section-title">38 Districts, One <span>Trusted Service</span></h2>
-          <div className="all-cities-grid">
-            <ul className="cities-list">
-              {citiesLeft.map((c) => (
-                <li key={c}>
-                  <Link href="/book">
-                    <span className="city-dot">📍</span> {c}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <ul className="cities-list">
-              {citiesRight.map((c) => (
-                <li key={c}>
-                  <Link href="/book">
-                    <span className="city-dot">📍</span> {c}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <div className="container">
+        <div className="cities-wrapper">
+
+          {ALL_CITIES_LIST.map((city) => (
+            <Link href="/book" className="city-card" key={city}>
+              <div className="city-icon">
+                <Image
+                  src="/images/location-pin.png"
+                  alt={city}
+                  width={22}
+                  height={22}
+                />
+              </div>
+
+              <div className="city-content">
+                <h3>{city}</h3>
+                <span>Book Taxi →</span>
+              </div>
+            </Link>
+          ))}
+
         </div>
-      </section>
+      </div>
 
       <Footer />
     </>

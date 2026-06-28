@@ -111,8 +111,8 @@ export default function HomePageClient() {
             <div className="hero-badge">🏆 Tamil Nadu's #1 Drop Taxi Service</div>
             <h1 className="hero-title">
               Safe & Affordable
-              <span className="hero-title-accent"> Drop Taxi</span>
-              Across Tamil Nadu
+              <span className="hero-title-accent mx-2">Drop Taxi</span> 
+               Across Tamil Nadu
             </h1>
             <p className="hero-sub">
               One-way drops, airport transfers & outstation cab service across all 38 districts.
@@ -125,7 +125,7 @@ export default function HomePageClient() {
                 onClick={() => trackCallClick('hero')}
                 aria-label={`Call ${site.siteName}`}
               >
-                📞 {site.phoneDisplay}
+                {site.phoneDisplay}
               </a>
               <a
                 href={`https://wa.me/${site.whatsapp}?text=Hi, I need to book a taxi.`}
@@ -134,7 +134,7 @@ export default function HomePageClient() {
                 className="btn-hero-secondary"
                 onClick={() => trackWhatsAppClick('hero')}
               >
-                💬 WhatsApp Us
+               WhatsApp Us
               </a>
             </div>
           </div>
@@ -246,7 +246,7 @@ export default function HomePageClient() {
                     <div className="route-est">Starting fare</div>
                     <div className="route-fare">{r.price}</div>
                   </div>
-                  <span className="route-book-cta">Book Now →</span>
+                  <Link href="/book" className="route-book-cta btn-fleet">Book Now</Link>
                 </div>
               </Link>
             ))}
@@ -274,7 +274,7 @@ export default function HomePageClient() {
       </section> */}
 
       {/* ── FEATURED CITIES ──────────────────── */}
-      <section className="section section--alt" aria-labelledby="fcities-heading">
+      {/* <section className="section section--alt" aria-labelledby="fcities-heading">
         <div className="container">
           <div className="section-label">Top Destinations</div>
           <h2 id="fcities-heading" className="section-title">Major City <span>Taxi Services</span></h2>
@@ -294,7 +294,7 @@ export default function HomePageClient() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── TESTIMONIALS ──────────────────────── */}
       <section className="section" aria-labelledby="testimonials-heading">

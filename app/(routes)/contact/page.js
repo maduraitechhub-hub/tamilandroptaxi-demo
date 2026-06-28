@@ -28,7 +28,6 @@ export default function ContactPage() {
       <StickyLeadBar />
 
       <div className="page-hero">
-        <div className="page-hero-badge">📞 Get In Touch</div>
         <h1 className="page-hero-title">Contact Us</h1>
         <p className="page-hero-sub">
           We're available 24/7 to help you with bookings, support, and travel assistance.

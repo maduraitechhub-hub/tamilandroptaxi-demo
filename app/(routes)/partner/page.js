@@ -28,34 +28,8 @@ export default function PartnerPage() {
       <Navbar activePage="partner" />
       <StickyLeadBar />
 
-      <div className="page-hero">
-        <div className="page-hero-badge">🤝 Partner Program</div>
-        <h1 className="page-hero-title">Drive With Us</h1>
-        <p className="page-hero-sub">
-          Join our growing network of 500+ drivers across Tamil Nadu.
-          <br />Earn more, work flexibly, and grow with Tamil Nadu's #1 drop taxi service.
-        </p>
-      </div>
-
-      {/* Benefits */}
-      <section className="section">
-        <div className="container">
-          <div className="section-label">Why Partner With Us?</div>
-          <h2 className="section-title">Built for <span>Driver Success</span></h2>
-          <div className="features-grid">
-            {benefits.map((b) => (
-              <div key={b.title} className="feature-card">
-                <div className="feature-icon">{b.icon}</div>
-                <div className="feature-title">{b.title}</div>
-                <div className="feature-desc">{b.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Partner Form */}
-      <section className="section section--dark">
+      <section className="section section--light">
         <div className="container">
           <PartnerForm />
         </div>

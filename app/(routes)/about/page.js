@@ -34,7 +34,6 @@ export default function AboutPage() {
       <StickyLeadBar />
 
       <div className="page-hero">
-        <div className="page-hero-badge">🏆 Since {site.established}</div>
         <h1 className="page-hero-title">About Us</h1>
         <p className="page-hero-sub">
           Tamil Nadu's most trusted taxi service since {site.established}, delivering safe and reliable rides.
