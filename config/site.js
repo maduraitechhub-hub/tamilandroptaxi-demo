@@ -14,9 +14,9 @@ export const DOMAIN_CONFIGS = {
     siteDescription:
       'Tamil Nadu most trusted taxi service. Safe, affordable, and reliable cab booking across all 38 districts since 2015.',
     siteUrl: 'https://tamilandroptaxi.com',
-    phone: '+918883666100',
-    phoneDisplay: '+91 8883666100',
-    whatsapp: '918883666100',
+    phone: '+919597775787',
+    phoneDisplay: '+91 9597775787',
+    whatsapp: '919597775787',
     email: 'hello@tamilandroptaxi.com',
     address: 'Tamil Nadu, India',
     established: '2015',

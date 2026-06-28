@@ -255,7 +255,7 @@ export default function HomePageClient() {
       </section>
 
       {/* ── CITIES WE SERVE (SEO) ──────────────── */}
-      <section className="section" aria-labelledby="cities-heading">
+      {/* <section className="section" aria-labelledby="cities-heading">
         <div className="container">
           <div className="section-label">Coverage</div>
           <h2 id="cities-heading" className="section-title">Drop Taxi in <span>Every Corner</span> of Tamil Nadu</h2>
@@ -271,7 +271,7 @@ export default function HomePageClient() {
             <Link href="/cities" className="btn-outline">View All Cities →</Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── FEATURED CITIES ──────────────────── */}
       <section className="section section--alt" aria-labelledby="fcities-heading">

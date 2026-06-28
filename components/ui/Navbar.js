@@ -39,14 +39,14 @@ export default function Navbar({ activePage }) {
         <div className="nav-inner">
           {/* Logo */}
           <Link href="/" className="nav-logo" aria-label={`${site.siteName} Home`}>
-            {/* <Image
+            <Image
               src={site.logo}
               alt={`${site.siteName} Logo`}
               width={48}
               height={48}
               className="nav-logo-img"
               priority
-            /> */}
+            />
             <div className="nav-logo-text">
               <span className="nav-logo-main">{site.siteName}</span>
               <span className="nav-logo-sub">{site.siteTagline}</span>
