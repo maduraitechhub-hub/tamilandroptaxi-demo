@@ -165,7 +165,7 @@ export default function HomePageClient() {
             {SERVICES.map((s) => (
               <Link key={s.title} href="/book" className="service-card">
                 <div className="service-icon">
-                  <Image src={s.icon} alt={s.title} width={60} height={60} />
+                  <Image src={s.icon} alt={s.title} width={1000} height={1000} />
                 </div>
                 <div className="service-title">{s.title}</div>
                 <div className="service-desc">{s.desc}</div>

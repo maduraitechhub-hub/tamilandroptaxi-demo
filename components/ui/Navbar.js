@@ -42,8 +42,8 @@ export default function Navbar({ activePage }) {
             <Image
               src={site.logo}
               alt={`${site.siteName} Logo`}
-              width={48}
-              height={48}
+              width={50}
+              height={50}
               className="nav-logo-img"
               priority
             />
