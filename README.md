@@ -186,14 +186,14 @@ That's it — the page `/taxi/vellore` auto-generates with full SEO, schema, FAQ
 
 ## 🏢 Multi-Domain Setup
 
-To launch a second domain (e.g. `tamilnadutoptaxi.com`):
+To launch a second domain (e.g. `tamilandroptaxi.com`):
 
 **Step 1 — Add config** in `config/site.js`:
 ```js
-tamilnadutoptaxi: {
-  siteKey: 'tamilnadutoptaxi',
+tamilandroptaxi: {
+  siteKey: 'tamilandroptaxi',
   siteName: 'TamilNadu Top Taxi',
-  siteUrl: 'https://tamilnadutoptaxi.com',
+  siteUrl: 'https://tamilandroptaxi.com',
   phone: '+91XXXXXXXXXX',
   whatsapp: '91XXXXXXXXXX',
   // ... other fields
@@ -202,8 +202,8 @@ tamilnadutoptaxi: {
 
 **Step 2 — Create second Vercel project** from same GitHub repo with:
 ```
-NEXT_PUBLIC_SITE_KEY = tamilnadutoptaxi
-NEXT_PUBLIC_SITE_URL = https://tamilnadutoptaxi.com
+NEXT_PUBLIC_SITE_KEY = tamilandroptaxi
+NEXT_PUBLIC_SITE_URL = https://tamilandroptaxi.com
 ```
 
 **Step 3 — Point the new domain** to the new Vercel project.
@@ -280,7 +280,7 @@ Create `app/(routes)/blog/[slug]/page.js` for:
 - "Airport taxi booking tips"
 
 ### Phase 4 — Second Domain
-Follow Multi-Domain Setup above for `tamilnadutoptaxi.com`
+Follow Multi-Domain Setup above for `tamilandroptaxi.com`
 
 ### Phase 5 — App Integration
 Replace form submission with a proper booking system API
@@ -289,6 +289,6 @@ Replace form submission with a proper booking system API
 
 ## 📞 Support
 
-- Phone: +91 81221 48519
+- Phone: +91 9597775787
 - Email: hello@tamilandroptaxi.com
-- WhatsApp: [wa.me/918122148519](https://wa.me/918122148519)
+- WhatsApp: [wa.me/919597775787](https://wa.me/919597775787)

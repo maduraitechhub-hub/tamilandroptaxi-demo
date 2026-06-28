@@ -41,11 +41,11 @@ export const DOMAIN_CONFIGS = {
   },
 
   // ── Template for a second domain ──────────────────────────
-  // tamilnadutoptaxi: {
+  // tamilandroptaxi: {
   //   siteKey: 'tamilandroptaxi',
   //   siteName: 'Tamilan Dop Taxi',
   //   siteTagline: 'Premium Cab Service',
-  //   siteUrl: 'https://tamilnadutoptaxi.com',
+  //   siteUrl: 'https://tamilandroptaxi.com',
   //   phone: '+91XXXXXXXXXX',
   //   ...
   // },
