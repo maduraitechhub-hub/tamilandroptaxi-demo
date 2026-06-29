@@ -43,7 +43,7 @@ export default function Footer() {
           <div>
             <div className="footer-logo">
               <Image
-                src={site.logo}
+                src="/images/logo.png"
                 alt={`${site.siteName} logo`}
                 width={52}
                 height={52}
