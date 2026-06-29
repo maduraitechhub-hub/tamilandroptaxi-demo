@@ -47,6 +47,13 @@ export const metadata = {
     'geo.region': site.stateCode,
     'geo.placename': `${site.stateName}, ${site.country}`,
   },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+      verification: {
+        google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+      },
+    }
+    : {}),
   ...(site.gscVerification ? { verification: { google: site.gscVerification } } : {}),
 };
 

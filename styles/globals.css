@@ -759,9 +759,9 @@ body {
 
 .fleet-img {
   height: 220px;
-  background: linear-gradient(135deg,
+  /* background: linear-gradient(135deg,
       var(--navy-light),
-      var(--gold-light));
+      var(--gold-light)); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3569,7 +3569,7 @@ font-size:18px;
 
 .fleet-badge--premium {
   background: var(--gold-light);
-  color: var(--gold-dark);
+  color: #000;
 }
 
 .fleet-img {
