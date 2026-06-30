@@ -32,7 +32,7 @@ export const DOMAIN_CONFIGS = {
     themeColor: '#0d9488',
     ogImage: '/og-image.png',
     logo: '/logo.png',
-    favicon: '/logo.png',
+    favicon: '/favicon.png',
     social: {
       facebook: 'https://facebook.com',
       instagram: 'https://instagram.com',
