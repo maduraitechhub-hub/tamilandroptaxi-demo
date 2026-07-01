@@ -38,9 +38,9 @@ export default function PartnerForm() {
     <div className="partner-section">
       <div style={{ textAlign: 'center', marginBottom: 48 }}>
         <div className="section-label">— Partner With Us —</div>
-        <h2 className="section-title">Drive With {site.siteName}</h2>
+        <h2 className="section-title">Become a  {site.siteName}</h2>
         <p className="section-sub">
-          Join our growing network of 500+ drivers. Earn more, work flexibly.
+          oin our trusted driver network across Tamil Nadu. Enjoy flexible working hours, consistent bookings, competitive earnings, and grow your business with one of Tamil Nadu's leading drop taxi services. 
         </p>
       </div>
 
