@@ -17,32 +17,32 @@ const BookingForm = dynamic(() => import('../forms/BookingForm'), {
 });
 
 const SERVICES = [
-  { icon: '/images/oneway.png', title: 'One Way Drop Taxi', desc: 'Pay only for the distance you travel. Our one-way taxi service helps you save money by eliminating unnecessary return charges.' },
-  { icon: '/images/airport.png', title: 'Airport Pickup & Drop', desc: 'Enjoy punctual airport transfers to and from Madurai Airport, Chennai Airport, Trichy Airport, Coimbatore Airport, and other major airports across Tamil Nadu.' },
-  { icon: '/images/outstation.png', title: 'Outstation Taxi', desc: 'Travel comfortably between cities with our reliable outstation taxi service. Perfect for weekend trips, business travel, family vacations, and temple tours.' },
-  { icon: '/images/roundtrip.png', title: 'Round Trip Taxi', desc: 'Book flexible round-trip cabs with experienced drivers, clean vehicles, and transparent pricing for a stress-free journey.' },
+  { icon: '/images/oneway.png', title: 'One Way Drop Taxi', alt: 'One Way Drop Taxi', desc: 'Pay only for the distance you travel. Our one-way taxi service helps you save money by eliminating unnecessary return charges.' },
+  { icon: '/images/airport.png', title: 'Airport Pickup & Drop', alt: 'Airport Pickup & Drop', desc: 'Enjoy punctual airport transfers to and from Madurai Airport, Chennai Airport, Trichy Airport, Coimbatore Airport, and other major airports across Tamil Nadu.' },
+  { icon: '/images/outstation.png', title: 'Outstation Taxi', alt: 'Outstation Taxi', desc: 'Travel comfortably between cities with our reliable outstation taxi service. Perfect for weekend trips, business travel, family vacations, and temple tours.' },
+  { icon: '/images/roundtrip.png', title: 'Round Trip Taxi', alt: 'Round Trip Taxi', desc: 'Book flexible round-trip cabs with experienced drivers, clean vehicles, and transparent pricing for a stress-free journey.' },
 ];
 
 const FEATURES = [
-  { icon: '/images/verified-driver.png', title: 'Verified Professional Drivers', desc: 'Every driver is licensed, experienced, and background-verified to ensure a safe and comfortable journey.' },
-   { icon: '/images/affordable-price.png', title: 'Affordable One Way Pricing', desc: 'Only pay for your one-way trip with no hidden fees or return fare charges.' },
-  { icon: '/images/safe-travel.png', title: 'Safe & Comfortable Travel', desc: 'Our GPS-enabled, well-maintained vehicles provide a secure and pleasant travel experience.' },
+  { icon: '/images/verified-driver.png', title: 'Verified Professional Drivers', alt: 'Verified Professional Drivers', desc: 'Every driver is licensed, experienced, and background-verified to ensure a safe and comfortable journey.' },
+   { icon: '/images/affordable-price.png', title: 'Affordable One Way Pricing', alt: 'Affordable One Way Pricing', desc: 'Only pay for your one-way trip with no hidden fees or return fare charges.' },
+  { icon: '/images/safe-travel.png', title: 'Safe & Comfortable Travel', alt: 'Safe & Comfortable Travel', desc: 'Our GPS-enabled, well-maintained vehicles provide a secure and pleasant travel experience.' },
  
-  { icon: '/images/tamilnadu-wide.png', title: 'Coverage Across Tamil Nadu', desc: 'We proudly serve all 38 districts, connecting Madurai with every major city and town.' },
-  { icon: '/images/support.png', title: '24×7 Customer Support', desc: 'Need assistance? Our dedicated support team is available round the clock to help with bookings and travel queries.' },
+  { icon: '/images/tamilnadu-wide.png', title: 'Coverage Across Tamil Nadu', alt: 'Coverage Across Tamil Nadu', desc: 'We proudly serve all 38 districts, connecting Madurai with every major city and town.' },
+  { icon: '/images/support.png', title: '24×7 Customer Support', alt: '24×7 Customer Support', desc: 'Need assistance? Our dedicated support team is available round the clock to help with bookings and travel queries.' },
 ];
 
 const FLEET = [
-  { name: 'Swift Dzire', badge: 'Economy', seats: '4 Seater', ac: 'AC', luggage: '2 Bags', price: '₹15/km', image: '/images/dzire.png' },
-  { name: 'Toyota Etios', badge: 'Economy', seats: '4 Seater', ac: 'AC', luggage: '2 Bags', price: '₹16/km', image: '/images/etios.png' },
-  { name: 'Toyota Innova', badge: 'Popular', seats: '6 Seater', ac: 'AC', luggage: '4 Bags', price: '₹20/km', image: '/images/innova.png' },
-  { name: 'Innova Crysta', badge: 'Premium', seats: '7 Seater', ac: 'AC', luggage: '5 Bags', price: '₹23/km', image: '/images/crysta.webp' },
+  { name: 'Swift Dzire', badge: 'Economy', seats: '4 Seater', ac: 'AC', luggage: '2 Bags', price: '₹15/km', alt: 'Swift Dzire', image: '/images/dzire.png' },
+  { name: 'Toyota Etios', badge: 'Economy', seats: '4 Seater', ac: 'AC', luggage: '2 Bags', price: '₹16/km', alt: 'Toyota Etios', image: '/images/etios.png' },
+  { name: 'Toyota Innova', badge: 'Popular', seats: '6 Seater', ac: 'AC', luggage: '4 Bags', price: '₹20/km', alt: 'Toyota Innova', image: '/images/innova.png' },
+  { name: 'Innova Crysta', badge: 'Premium', seats: '7 Seater', ac: 'AC', luggage: '5 Bags', price: '₹23/km', alt: 'Innova Crysta', image: '/images/crysta.webp' },
 ];
 
 const TESTIMONIALS = [
-  { name: 'Vinoth Kumar', city: 'Madurai', rating: 5, text: 'Excellent service! The driver was punctual and professional. Great experience on my Madurai to Chennai trip with Tamilan Drop Taxi', image: '/images/user-1.png' },
-  { name: 'Yazhini', city: 'Coimbatore', rating: 5, text: 'Best drop taxi in Tamil Nadu! Very affordable and the driver was very polite. Highly recommended.', image: '/images/user-2.png' },
-  { name: 'Anandha Balu', city: 'Trichy', rating: 5, text: 'Used Tamilan Drop Taxi service 5 times already. Always on time, always clean cars. I will continue using it.', image: '/images/user-3.png' },
+  { name: 'Vinoth Kumar', city: 'Madurai', rating: 5, text: 'Excellent service! The driver was punctual and professional. Great experience on my Madurai to Chennai trip with Tamilan Drop Taxi', alt: 'Vinoth Kumar', image: '/images/user-1.png' },
+  { name: 'Yazhini', city: 'Coimbatore', rating: 5, text: 'Best drop taxi in Tamil Nadu! Very affordable and the driver was very polite. Highly recommended.', alt: 'Yazhini', image: '/images/user-2.png' },
+  { name: 'Anandha Balu', city: 'Trichy', rating: 5, text: 'Used Tamilan Drop Taxi service 5 times already. Always on time, always clean cars. I will continue using it.', alt: 'Anandha Balu', image: '/images/user-3.png' },
 ];
 
 const CITIES_LEFT = ['Coimbatore Drop Taxi','Chennai Drop Taxi','Trichy Drop Taxi','Namakkal Drop Taxi','Pollachi Drop Taxi','Vellore Drop Taxi','Tirunelveli Drop Taxi','Mettupalayam Drop Taxi','Villupuram Drop Taxi','Thoothukudi Drop Taxi','Nagercoil Drop Taxi','Thiruvannamalai Drop Taxi','Neyveli Drop Taxi','Kumbakonam Drop Taxi','Salem Drop Taxi'];
@@ -161,7 +161,7 @@ export default function HomePageClient() {
           </p>
           <div className="services-grid">
             {SERVICES.map((s) => (
-              <Link key={s.title} href="/book" className="service-card">
+              <Link key={s.title} title={s.title} href="/book" className="service-card">
                 <div className="service-icon">
                   <Image src={s.icon} alt={s.title} width={1000} height={1000} />
                 </div>
@@ -216,7 +216,7 @@ export default function HomePageClient() {
                   <span>🧳 {car.luggage}</span>
                 </div>
                 <div className="fleet-price">{car.price}</div>
-                <Link href="/book" className="btn-fleet">Book This Car</Link>
+                <Link href="/book"  title={`Book ${car.name}`} className="btn-fleet">Book This Car</Link>
               </div>
             ))}
           </div>
@@ -244,7 +244,7 @@ export default function HomePageClient() {
                     <div className="route-est">Starting fare</div>
                     <div className="route-fare">{r.price}</div>
                   </div>
-                  <Link href="/book" className="route-book-cta btn-fleet">Book Now</Link>
+                  <Link href="/book"  title={`Book ${r.from} to ${r.to} taxi`} className="route-book-cta btn-fleet">Book Now</Link>
                 </div>
               </Link>
             ))}
@@ -349,7 +349,7 @@ export default function HomePageClient() {
             <a
               href={`tel:${site.phone}`}
               className="btn-hero-primary"
-              onClick={() => trackCallClick('bottom_cta')}
+              onClick={() => trackCallClick('bottom_cta')}  title={`Call ${site.siteName}`}
             >
               📞 Call {site.phoneDisplay}
             </a>
@@ -359,10 +359,11 @@ export default function HomePageClient() {
               rel="noopener noreferrer"
               className="btn-hero-secondary"
               onClick={() => trackWhatsAppClick('bottom_cta')}
+               title={`WhatsApp ${site.siteName}`}
             >
               💬 WhatsApp Now
             </a>
-            <Link href="/book" className="btn-outline btn-outline--light">
+            <Link href="/book" className="btn-outline btn-outline--light" title="Book Online">
               Book Online →
             </Link>
           </div>
