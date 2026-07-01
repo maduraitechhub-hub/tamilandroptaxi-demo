@@ -181,28 +181,28 @@ export const POPULAR_ROUTES = [
 /** Global FAQ for homepage schema */
 export const GLOBAL_FAQS = [
   {
-    q: 'What is a drop taxi service in Tamil Nadu?',
-    a: 'A drop taxi is a one-way outstation cab service where you only pay for the one-way journey. Unlike traditional rentals, there is no return fare, making it the most cost-effective option for intercity travel in Tamil Nadu.',
+    q: 'What is a one-way drop taxi?',
+    a: 'A one-way drop taxi lets you pay only for the distance you travel without paying return charges, making it the most economical option for intercity travel.',
   },
   {
-    q: 'How do I book a taxi online with Tamilandroptaxi?',
-    a: 'Simply fill in your pickup location, drop location, travel date and time in our booking form. Get an instant fare estimate and confirm your booking. Our team will contact you within minutes.',
+    q: 'Which cities do you serve?',
+    a: 'Tamilan Drop Taxi operates from Madurai and provides taxi services to all 38 districts of Tamil Nadu, including Chennai, Coimbatore, Trichy, Salem, Tirunelveli, Erode, Thanjavur, Rameswaram, and more.',
   },
   {
-    q: 'What are the taxi rates per km in Tamil Nadu?',
-    a: 'Our rates start at ₹15/km for Sedan (Swift Dzire), ₹16/km for Etios, ₹20/km for Innova, and ₹23/km for Innova Crysta. All rates are inclusive of driver bata and toll charges.',
+    q: 'How do I book a taxi?',
+    a: 'You can book your taxi instantly by calling us, sending a WhatsApp message, or filling out our online booking form.',
   },
   {
-    q: 'Are Tamilandroptaxi drivers verified?',
-    a: 'Yes, all our drivers undergo thorough background checks, are fully licensed, and are trained in customer service and road safety. Every vehicle is GPS-tracked for your safety.',
+    q: 'Are your taxi fares transparent?',
+    a: 'Yes. We offer upfront pricing with no hidden charges. You only pay the agreed fare at the time of booking.',
   },
   {
-    q: 'Do you provide airport taxi service across Tamil Nadu?',
-    a: 'Yes! We operate from all major airports in Tamil Nadu including Chennai (MAA), Coimbatore (CJB), Madurai (IXM), and Trichy (TRZ) airports.',
+    q: 'Are your drivers verified?',
+    a: 'Absolutely. All our drivers are licensed, experienced, and background-verified for your safety.',
   },
   {
-    q: 'Is there a minimum distance for drop taxi booking?',
-    a: 'Our drop taxi service is ideal for trips of 50 km or more. For shorter trips within a city, we recommend our local rental packages.',
+    q: 'Do you provide airport taxi services?',
+    a: 'Yes. We offer airport pickup and drop services for Madurai, Chennai, Trichy, Coimbatore, and other major airports in Tamil Nadu.',
   },
 ];
 
