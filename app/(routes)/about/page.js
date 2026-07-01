@@ -62,16 +62,12 @@ export default function AboutPage() {
 
             <div>
               <div className="section-label">Our Story</div>
-              <h2 className="about-title">Your trusted travel connection across Tamil Nadu.</h2>
+              <h2 className="about-title">About Tamilan Drop Taxi - Madurai's Most Trusted One-Way Cab Service</h2>
               <p className="about-desc">
-                Founded in {site.established} in Madurai, {site.siteName} started with a simple mission: to make
-                safe, reliable intercity travel accessible to everyone across Tamil Nadu. What began as a small
-                fleet of 5 cars has grown into a trusted network of 500+ verified drivers covering all 38 districts.
+               Tamilan Drop Taxi is Madurai's leading one-way drop taxi service, connecting the Temple City to every major destination across Tamil Nadu. With a simple mission of safe, affordable, and stress-free outstation travel, we have grown into one of Tamil Nadu's most trusted intercity cab services, covering all 38 districts with transparency and care.
               </p>
               <p className="about-desc">
-                We understand the unique needs of Tamil Nadu travelers — from pilgrimage trips to Madurai and
-                Rameswaram, to corporate travel between Chennai and Coimbatore. Our local knowledge, combined
-                with professional service standards, makes us the preferred choice for millions.
+               Since 2015, thousands of travellers, families, business professionals, and pilgrims have chosen Tamilan Drop Taxi for dependable one-way cab service with no return fare. From Madurai to Chennai, Coimbatore, Trichy, or anywhere across Tamil Nadu we get you there comfortably and on time, every time.
               </p>
 
               <div className="about-values">

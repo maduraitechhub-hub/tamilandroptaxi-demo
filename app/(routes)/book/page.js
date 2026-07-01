@@ -26,10 +26,9 @@ export default function BookPage() {
       <StickyLeadBar />
 
       <div className="page-hero">
-        <h1 className="page-hero-title">Book Your Taxi</h1>
+        <h1 className="page-hero-title">Book Your Tamilan Taxi Today – Fast, Safe & Affordable</h1>
         <p className="page-hero-sub">
-          Get an instant fare estimate and confirm your booking in under 2 minutes.
-          <br />Professional drivers • Transparent pricing • No hidden charges.
+         Get an instant fare estimate for your one-way taxi, outstation cab, or airport taxi. <br/> Tamilan Drop Taxi offers affordable rates, professional drivers, transparent pricing, and reliable taxi services across Tamil Nadu with no hidden charges or return fare
         </p>
       </div>
 
