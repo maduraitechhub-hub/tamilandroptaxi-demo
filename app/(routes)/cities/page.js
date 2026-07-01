@@ -26,10 +26,9 @@ export default function CitiesPage() {
       <StickyLeadBar />
 
       <div className="page-hero">
-        <h1 className="page-hero-title">Cities We Serve</h1>
+        <h1 className="page-hero-title">Top Cities We Serve Across Tamil Nadu</h1>
         <p className="page-hero-sub">
-          Reliable taxi service across all major cities in Tamil Nadu.
-          <br />Timely pickups, professional drivers, and hassle-free rides everywhere.
+         From the Temple City of Madurai to the Marina shores of Chennai, Tamilan Drop Taxi serves all major cities across <br/> Tamil Nadu with on-time pickups, verified professional drivers, and completely hassle-free one-way drop taxi rides. 
         </p>
       </div>
 
@@ -37,11 +36,11 @@ export default function CitiesPage() {
       <section className="section">
         <div className="container">
           <h2 className="section-title">
-            38 Districts, One <span>Trusted Service</span>
+           Trusted Tamilan Drop Taxi Services in All 38 Districts
           </h2>
           <p className="">
-            From major metro cities to smaller towns, we provide reliable taxi services
-            with the same trusted quality and safe travel experience.
+           Tamilan Drop Taxi provides safe, affordable, and reliable one-way drop taxi, outstation taxi, and airport taxi services across all 38 districts of Tamil Nadu. Whether you're travelling to Chennai, Madurai, Coimbatore, Trichy, Salem, Tirunelveli, or any other city, enjoy professional drivers, transparent pricing, and on-time pickups for a hassle-free journey.
+
           </p>
         </div>
       </section>
