@@ -17,18 +17,19 @@ const BookingForm = dynamic(() => import('../forms/BookingForm'), {
 });
 
 const SERVICES = [
-  { icon: '/images/airport.png', title: 'Airport Pickup & Drop', desc: 'On-time airport transfers with professional drivers for a smooth, stress-free journey.' },
-  { icon: '/images/outstation.png', title: 'Outstation Taxi', desc: 'Travel beyond city limits with comfortable and affordable outstation cab services.' },
-  { icon: '/images/oneway.png', title: 'One Way Drop', desc: 'Book convenient one-way rides without paying for a return trip.' },
-  { icon: '/images/roundtrip.png', title: 'Round Trip', desc: 'Flexible round-trip travel with reliable service for business, family, or leisure.' },
+  { icon: '/images/oneway.png', title: 'One Way Drop Taxi', desc: 'Pay only for the distance you travel. Our one-way taxi service helps you save money by eliminating unnecessary return charges.' },
+  { icon: '/images/airport.png', title: 'Airport Pickup & Drop', desc: 'Enjoy punctual airport transfers to and from Madurai Airport, Chennai Airport, Trichy Airport, Coimbatore Airport, and other major airports across Tamil Nadu.' },
+  { icon: '/images/outstation.png', title: 'Outstation Taxi', desc: 'Travel comfortably between cities with our reliable outstation taxi service. Perfect for weekend trips, business travel, family vacations, and temple tours.' },
+  { icon: '/images/roundtrip.png', title: 'Round Trip Taxi', desc: 'Book flexible round-trip cabs with experienced drivers, clean vehicles, and transparent pricing for a stress-free journey.' },
 ];
 
 const FEATURES = [
-  { icon: '/images/verified-driver.png', title: 'Verified Drivers', desc: 'All our drivers are fully licensed and background verified.' },
-  { icon: '/images/safe-travel.png', title: 'Safe Travel', desc: 'GPS-tracked rides for your complete safety.' },
-  { icon: '/images/affordable-price.png', title: 'Affordable Price', desc: 'Best rates with no hidden charges — transparent pricing.' },
-  { icon: '/images/tamilnadu-wide.png', title: 'Tamil Nadu Wide', desc: 'Covering all 38 districts across Tamil Nadu.' },
-  { icon: '/images/support.png', title: '24/7 Support', desc: 'Round-the-clock customer care in Tamil & English.' },
+  { icon: '/images/verified-driver.png', title: 'Verified Professional Drivers', desc: 'Every driver is licensed, experienced, and background-verified to ensure a safe and comfortable journey.' },
+   { icon: '/images/affordable-price.png', title: 'Affordable One Way Pricing', desc: 'Only pay for your one-way trip with no hidden fees or return fare charges.' },
+  { icon: '/images/safe-travel.png', title: 'Safe & Comfortable Travel', desc: 'Our GPS-enabled, well-maintained vehicles provide a secure and pleasant travel experience.' },
+ 
+  { icon: '/images/tamilnadu-wide.png', title: 'Coverage Across Tamil Nadu', desc: 'We proudly serve all 38 districts, connecting Madurai with every major city and town.' },
+  { icon: '/images/support.png', title: '24×7 Customer Support', desc: 'Need assistance? Our dedicated support team is available round the clock to help with bookings and travel queries.' },
 ];
 
 const FLEET = [
@@ -39,9 +40,9 @@ const FLEET = [
 ];
 
 const TESTIMONIALS = [
-  { name: 'Rajan Kumar', city: 'Madurai', rating: 5, text: 'Excellent service! The driver was punctual and professional. Great experience on my Madurai to Chennai trip.', image: '/images/user-1.png' },
-  { name: 'Priya Srinivasan', city: 'Coimbatore', rating: 5, text: 'Best drop taxi in Tamil Nadu! Very affordable and the driver was very polite. Highly recommended.', image: '/images/user-2.png' },
-  { name: 'Senthil Murugan', city: 'Trichy', rating: 5, text: 'Used the service 5 times already. Always on time, always clean cars. Will continue using it.', image: '/images/user-3.png' },
+  { name: 'Vinoth Kumar', city: 'Madurai', rating: 5, text: 'Excellent service! The driver was punctual and professional. Great experience on my Madurai to Chennai trip with Tamilan Drop Taxi', image: '/images/user-1.png' },
+  { name: 'Yazhini', city: 'Coimbatore', rating: 5, text: 'Best drop taxi in Tamil Nadu! Very affordable and the driver was very polite. Highly recommended.', image: '/images/user-2.png' },
+  { name: 'Anandha Balu', city: 'Trichy', rating: 5, text: 'Used Tamilan Drop Taxi service 5 times already. Always on time, always clean cars. I will continue using it.', image: '/images/user-3.png' },
 ];
 
 const CITIES_LEFT = ['Coimbatore Drop Taxi','Chennai Drop Taxi','Trichy Drop Taxi','Namakkal Drop Taxi','Pollachi Drop Taxi','Vellore Drop Taxi','Tirunelveli Drop Taxi','Mettupalayam Drop Taxi','Villupuram Drop Taxi','Thoothukudi Drop Taxi','Nagercoil Drop Taxi','Thiruvannamalai Drop Taxi','Neyveli Drop Taxi','Kumbakonam Drop Taxi','Salem Drop Taxi'];
@@ -108,15 +109,13 @@ export default function HomePageClient() {
         </div>
         <div className="hero-content">
           <div className="hero-left">
-            <div className="hero-badge">🏆 Tamil Nadu's #1 Drop Taxi Service</div>
-            <h1 className="hero-title">
-              Safe & Affordable
-              <span className="hero-title-accent mx-2">Drop Taxi</span> 
-               Across Tamil Nadu
+            <div className="hero-badge">🏆 Madurai’s No1 Drop Taxi Service </div>
+            <h1 className="hero-title">         
+              <span className="hero-title-accent mx-2">   Tamilan TrustedDrop Taxi </span> 
+              Safe, Affordable & Reliable Rides Across Tamil Nadu
             </h1>
             <p className="hero-sub">
-              One-way drops, airport transfers & outstation cab service across all 38 districts.
-              Verified drivers · No hidden charges · 24/7 support.
+             Travel anywhere in Tamil Nadu or anywhere with Tamilan Drop Taxi, Madurai's trusted one-way taxi service since 2015. Whether you're booking a Madurai to Chennai taxi, airport transfer, outstation cab, or one-way drop taxi, we offer transparent pricing with no return charges, experienced drivers, and 24/7 customer support. 
             </p>
             <div className="hero-actions">
               <a
@@ -134,7 +133,7 @@ export default function HomePageClient() {
                 className="btn-hero-secondary"
                 onClick={() => trackWhatsAppClick('hero')}
               >
-               WhatsApp Us
+               Book on WhatsApp
               </a>
             </div>
           </div>
@@ -156,10 +155,9 @@ export default function HomePageClient() {
       <section className="section" aria-labelledby="services-heading">
         <div className="container">
           <div className="section-label">What We Offer</div>
-          <h2 id="services-heading" className="section-title">Our Taxi <span>Services</span></h2>
+          <h2 id="services-heading" className="section-title">Explore Our <span>Tamilan Taxi Services </span></h2>
           <p className="section-sub">
-            From airport transfers to long-distance intercity trips — we've got every journey covered
-            with professional drivers and transparent pricing.
+           Our Tamlian Taxi services offer one-way drop taxi, Airport Pickup & drop, Outstation Taxi and Round Trip services for your travelling for business, family vacation or airport transfer. We offer comfortable, affordable and safe taxi services. Book your Ride in Minutes.
           </p>
           <div className="services-grid">
             {SERVICES.map((s) => (
@@ -179,9 +177,9 @@ export default function HomePageClient() {
       <section className="section section--alt" aria-labelledby="features-heading">
         <div className="container">
           <div className="section-label">Why Choose Us</div>
-          <h2 id="features-heading" className="section-title">Tamil Nadu's Most <span>Trusted</span> Taxi</h2>
+          <h2 id="features-heading" className="section-title">Why Choose Our Tamilan Drop Taxi Services</h2>
           <p className="section-sub">
-            Since {site.established}, we've been delivering safe and affordable cab service across Tamil Nadu.
+            Since {site.established},  Tamilan taxi has delivered safe and affordable drop taxi service from Madurai to every corner of Tamil Nadu. Our commitment to customer satisfaction makes us one of the most trusted drop taxi providers in the state.
           </p>
           <div className="features-grid">
             {FEATURES.map((f) => (
@@ -201,8 +199,8 @@ export default function HomePageClient() {
       <section className="section" aria-labelledby="fleet-heading">
         <div className="container">
           <div className="section-label">Our Fleet</div>
-          <h2 id="fleet-heading" className="section-title">Choose Your <span>Vehicle</span></h2>
-          <p className="section-sub">All vehicles are AC, GPS-equipped, and maintained to highest standards.</p>
+          <h2 id="fleet-heading" className="section-title">Find the Right Tamilan Drop Taxi Car for Your Trip</h2>
+          <p className="section-sub">Travel in clean, air-conditioned, GPS-enabled vehicles maintained for comfort and safety. Whether you're travelling alone, with family, or in a group, we have the right cab for every journey.</p>
           <div className="fleet-grid">
             {FLEET.map((car) => (
               <div key={car.name} className="fleet-card">
@@ -229,9 +227,9 @@ export default function HomePageClient() {
       <section className="section section--alt" aria-labelledby="routes-heading">
         <div className="container">
           <div className="section-label">Popular Routes</div>
-          <h2 id="routes-heading" className="section-title">Frequently Booked <span>Routes</span></h2>
+          <h2 id="routes-heading" className="section-title">Our Popular Taxi Routes Across Tamil Nadu</h2>
           <p className="section-sub">
-            Transparent starting fares for the most popular drop taxi routes. Actual fare depends on vehicle type.
+           Book taxis for popular routes across Tamil Nadu in affordable drop taxis on the most frequently travelled routes. We provide transparent pricing, experienced drivers, and comfortable rides for every destination.
           </p>
           <div className="routes-grid">
             {POPULAR_ROUTES.map((r) => (
@@ -300,7 +298,7 @@ export default function HomePageClient() {
       <section className="section" aria-labelledby="testimonials-heading">
         <div className="container">
           <div className="section-label">Customer Reviews</div>
-          <h2 id="testimonials-heading" className="section-title">What Our <span>Riders Say</span></h2>
+          <h2 id="testimonials-heading" className="section-title">Trusted by Thousands of Happy Travellers</h2>
           <div className="testimonials-grid">
             {TESTIMONIALS.map((t) => (
               <div key={t.name} className="testimonial-card">
@@ -343,7 +341,7 @@ export default function HomePageClient() {
       {/* ── BOTTOM CTA ──────────────────────── */}
       <section className="section section--teal" aria-label="Book a taxi">
         <div className="container" style={{ textAlign: 'center' }}>
-          <h2 className="section-title section-title--light">Ready to Book Your <span>Taxi?</span></h2>
+          <h2 className="section-title section-title--light">Ready to Book Your Taxi?</h2>
           <p className="section-sub section-sub--light">
             Call or WhatsApp us now for instant confirmation. Available 24/7 across Tamil Nadu.
           </p>
