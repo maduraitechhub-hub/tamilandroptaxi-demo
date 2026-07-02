@@ -31,7 +31,7 @@ export default function ContactPage() {
         <h1 className="page-hero-title">Contact Us</h1>
         <p className="page-hero-sub">
           We're available 24/7 to help you with bookings, support, and travel assistance.
-          <br />Call, WhatsApp, or drop us a message — we respond within 2 hours.
+          <br />Call, WhatsApp, or drop us a message — we respond quickly.
         </p>
       </div>
 

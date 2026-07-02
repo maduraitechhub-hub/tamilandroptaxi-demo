@@ -164,18 +164,76 @@ export function getCityBySlug(slug) {
 
 /** Popular routes for homepage */
 export const POPULAR_ROUTES = [
-  { from: 'Chennai', to: 'Vellore', price: '₹2,318', image: '/images/chn-vel.png', km: '145 km' },
-  { from: 'Chennai', to: 'Pondicherry', price: '₹2,710', image: '/images/chn-pdy.png', km: '162 km' },
-  { from: 'Chennai', to: 'Trichy', price: '₹5,045', image: '/images/chn-trc.png', km: '335 km' },
-  { from: 'Chennai', to: 'Salem', price: '₹5,230', image: '/images/chn-slm.png', km: '340 km' },
-  { from: 'Chennai', to: 'Coimbatore', price: '₹7,477', image: '/images/chn-cbe.png', km: '500 km' },
-  { from: 'Chennai', to: 'Bangalore', price: '₹5,264', image: '/images/chn-bng.png', km: '350 km' },
-  { from: 'Chennai', to: 'Madurai', price: '₹6,872', image: '/images/chn-mdu.png', km: '465 km' },
-  { from: 'Chennai', to: 'Tiruvannamalai', price: '₹3,116', image: '/images/chn-thy.png', km: '185 km' },
-  { from: 'Chennai', to: 'Tirupati', price: '₹2,262', image: '/images/chn-tpt.png', km: '140 km' },
-  { from: 'Madurai', to: 'Chennai', price: '₹6,872', image: '/images/mdu-chn.png', km: '465 km' },
-  { from: 'Madurai', to: 'Coimbatore', price: '₹3,500', image: '/images/chn-cbe.png', km: '213 km' },
-  { from: 'Madurai', to: 'Tirunelveli', price: '₹2,200', image: '/images/mdu-thy.png', km: '160 km' },
+  //  {
+  //   from: "Madurai",
+  //   to: "Vellore",
+  //   image: "/images/chn-vel.webp",
+  //   km: "396 km",
+  //   description: "Ideal for medical appointments, business travel, and one-way taxi bookings."
+  // },
+  {
+    from: "Madurai",
+    to: "Pondicherry",
+    image: "/images/chn-pdy.webp",
+    km: "325 km",
+    description: "A favourite route for beach holidays, weekend escapes, and family vacations."
+  },
+  {
+    from: "Madurai",
+    to: "Trichy",
+    image: "/images/chn-trc.webp",
+    km: "125 km",
+    description: "perfect for business meetings, temple visits, and quick one-way travel."
+  },
+  {
+    from: "Madurai",
+    to: "Salem",
+    image: "/images/chn-slm.webp",
+    km: "238 km",
+    description: "A preferred route for business travellers, family visits, and comfortable intercity travel."
+  },
+  {
+    from: "Madurai",
+    to: "Coimbatore",
+    image: "/images/chn-cbe.webp",
+    km: "211 km",
+    description: "Affordable Chennai to Coimbatore one way taxi service with no hidden charges."
+  },
+  {
+    from: "Madurai",
+    to: "Bangalore",
+    image: "/images/chn-bng.webp",
+    km: "420 km",
+    description: "One of the most booked routes for corporate travel, IT professionals, and weekend trips."
+  },
+  {
+    from: "Madurai",
+    to: "Chennai",
+    image: "/images/mdu-chn.webp",
+    km: "465 km",
+    description: "Reliable Chennai to Madurai taxi service with comfortable rides across Tamil Nadu."
+  },
+  {
+    from: "Madurai",
+    to: "Tiruvannamalai",
+    image: "/images/chn-thy.webp",
+    km: "310 km",
+    description: "A popular choice for pilgrimage travel and temple visits."
+  },
+  {
+    from: "Madurai",
+    to: "Tirupati",
+    image: "/images/chn-tpt.webp",
+    km: "516 km",
+    description: "Trusted by devotees for comfortable pilgrimage and family travel."
+  },
+  {
+    from: "Madurai",
+    to: "Tirunelveli",
+    image: "/images/mdu-thy.webp",
+    km: "173 km",
+    description: "Ideal for short outstation trips, business travel, and pilgrimage journeys."
+  },
 ];
 
 /** Global FAQ for homepage schema */

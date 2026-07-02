@@ -8,7 +8,6 @@ const SERVICES = [
   { label: 'One-Way Drop Taxi',          href: '/book'                          },
   { label: 'Outstation Cab Booking',     href: '/book'                          },
   { label: 'Airport Taxi Service',       href: '/book'                          },
-  { label: 'Corporate Cab Service',      href: '/book'                          },
   { label: 'Madurai Local & Round Trip', href: '/madurai-local-round-trip-taxi' },
   { label: 'Driver Partner Programme',   href: '/partner'                       },
 ];
@@ -23,12 +22,12 @@ const QUICK_LINKS = [
 ];
 
 const TOP_ROUTES = [
-  { label: 'Chennai → Madurai',    href: '/taxi/madurai'    },
-  { label: 'Chennai → Coimbatore', href: '/taxi/coimbatore' },
-  { label: 'Chennai → Trichy',     href: '/taxi/trichy'     },
-  { label: 'Madurai → Chennai',    href: '/taxi/chennai'    },
-  { label: 'Coimbatore → Chennai', href: '/taxi/chennai'    },
-  { label: 'Trichy → Chennai',     href: '/taxi/chennai'    },
+  { label: 'Madurai → Chennai',    href: '/book'    },
+  { label: 'Madurai → Coimbatore', href: '/book' },
+  { label: 'Madurai → Trichy',     href: '/book'     },
+  { label: 'Madurai → Bangalore',    href: '/book'    },
+  { label: 'Madurai → Tirunalveli', href: '/book'    },
+  { label: 'Madurai → Pondicherry',     href: '/book'    },
 ];
 
 export default function Footer() {
@@ -55,8 +54,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="footer-brand-desc">
-              Tamil Nadu&apos;s most trusted one-way outstation taxi service.
-              Transparent fares. Verified drivers. 24/7 availability.
+          Tamilan Drop Taxi offer Professional Taxi Services connecting Madurai with transparent pricing and verified drivers.
             </p>
             <div className="footer-contact">
               <a href={`tel:${site.phone}`} className="footer-contact-link">

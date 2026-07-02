@@ -35,15 +35,7 @@ export default function PartnerForm() {
   };
 
   return (
-    <div className="partner-section">
-      <div style={{ textAlign: 'center', marginBottom: 48 }}>
-        <div className="section-label">— Partner With Us —</div>
-        <h2 className="section-title">Become a  {site.siteName}</h2>
-        <p className="section-sub">
-          oin our trusted driver network across Tamil Nadu. Enjoy flexible working hours, consistent bookings, competitive earnings, and grow your business with one of Tamil Nadu's leading drop taxi services. 
-        </p>
-      </div>
-
+      
       <div className="partner-card">
         <div className="partner-title">Join Our Driver Network</div>
         <p className="partner-sub">Fill in your details and we'll get back to you within 24 hours.</p>
@@ -103,7 +95,6 @@ export default function PartnerForm() {
             {sending ? 'Sending…' : 'Join Tamilandroptaxi Partner '}
           </button>
         </form>
-      </div>
 
       <FormFeedbackModal open={modal.open} variant={modal.variant} title={modal.title} message={modal.message} onClose={closeModal} />
     </div>

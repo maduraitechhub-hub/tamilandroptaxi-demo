@@ -27,7 +27,12 @@ export default function PartnerPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <Navbar activePage="partner" />
       <StickyLeadBar />
-
+      <div className="page-hero">
+        <h1 className="page-hero-title">Become a Tamilan Drop Taxi</h1>
+        <p className="page-hero-sub">
+         Partner with Tamilan Drop Taxi and grow your income with regular bookings, better earnings, and trusted support.
+        </p>
+      </div>
       {/* Partner Form */}
       <section className="section section--light">
         <div className="container">

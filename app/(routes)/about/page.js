@@ -36,8 +36,7 @@ export default function AboutPage() {
       <div className="page-hero">
         <h1 className="page-hero-title">About Us</h1>
         <p className="page-hero-sub">
-          Tamil Nadu's most trusted taxi service since {site.established}, delivering safe and reliable rides.
-          <br />Professional drivers and quality service for every journey.
+        Driven by trust and powered by service, Tamilan Drop Taxi has been connecting travellers across <br/>Tamil Nadu with reliable one-way and outstation taxi services since 2015.
         </p>
       </div>
 
@@ -47,7 +46,7 @@ export default function AboutPage() {
           <div className="about-grid">
             <div className="about-img-wrap">
               <Image
-                src="/images/aboutimg.png"
+                src="/images/aboutimg.webp"
                 alt={`About ${site.siteName}`}
                 width={500}
                 height={400}

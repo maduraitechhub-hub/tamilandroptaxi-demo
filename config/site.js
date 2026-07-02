@@ -12,7 +12,7 @@ export const DOMAIN_CONFIGS = {
     siteName: 'Tamilandroptaxi',
     siteTagline: 'Premium Cab Service',
     siteDescription:
-      'Madurai\'s most trusted drop taxi service. Safe, affordable, and reliable one-way outstation cab booking from Madurai to all 38 districts of Tamil Nadu since 2015.',
+      'Book Tamilan Drop Taxi for safe and affordable one-way, outstation, and airport taxi services from Madurai across all 38 districts of Tamil Nadu. No return charges.',
     siteUrl: 'https://tamilandroptaxi.com',
     phone: '+919597775787',
     phoneDisplay: '+91 9597775787',
