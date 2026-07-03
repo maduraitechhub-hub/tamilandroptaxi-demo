@@ -1,6 +1,6 @@
 import { CITY_SLUGS } from '@/config/locations';
 
-const SITE_URL = 'https://www.tamilandroptaxi.com';
+const SITE_URL = 'https://tamilandroptaxi.com';
 
 /** Static routes with SEO priority hints */
 const staticRoutes = [
@@ -11,11 +11,6 @@ const staticRoutes = [
   { path: '/contact',      priority: 0.7,  changeFreq: 'monthly' },
   { path: '/partner',      priority: 0.6,  changeFreq: 'monthly' },
   // Dedicated Madurai local + round trip landing page
-  {
-    path:       '/madurai-local-round-trip-taxi',
-    priority:   0.87,
-    changeFreq: 'weekly',
-  },
 ];
 
 export default function sitemap() {
