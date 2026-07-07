@@ -1170,6 +1170,7 @@ body {
 /* Mobile */
 @media (max-width: 576px) {
   .hero-title {
+    line-height: 45px;
     font-size: clamp(1.8rem, 5vw, 2.4rem);
   }
 
@@ -3976,12 +3977,21 @@ details[open] {
 }
 
 @media (max-width: 640px) {
+  .stat-item--light .stat-label {
+    font-size: 12px;
+  }
+  .stat-item--light .stat-value {
+    font-size: 1.7rem;
+  }
   .services-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 400px) {
+  .tab-btn {
+    min-width: 104px;
+  }
   .services-grid {
     grid-template-columns: 1fr;
   }
