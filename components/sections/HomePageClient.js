@@ -130,7 +130,7 @@ export default function HomePageClient() {
                 onClick={() => trackCallClick('hero')}
                 aria-label={`Call ${site.siteName}`}
               >
-                {site.phoneDisplay}
+                Call Now
               </a>
               <a
                 href={`https://wa.me/${site.whatsapp}?text=Hi, I need to book a taxi.`}
