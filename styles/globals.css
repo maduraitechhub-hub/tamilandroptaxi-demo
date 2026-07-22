@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Raleway:wght@400;500;600;700;800;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Raleway:wght@400;500;600;700;800;900&display=swap'); */
 
 :root {
   /* Tamilandroptaxi Premium Black & Yellow Taxi Theme */
@@ -41,14 +41,14 @@ html {
 }
 
 body {
-  font-family: 'Nunito', sans-serif;
+ font-family: var(--font-nunito), sans-serif;
   color: var(--text);
   background: var(--white);
   overflow-x: hidden;
 }
 
 .tntt-root {
-  font-family: 'Nunito', sans-serif;
+ font-family: var(--font-nunito), sans-serif;
 }
 
 .navbar {
