@@ -1,8 +1,23 @@
 import Script from 'next/script';
+import { Nunito, Raleway } from 'next/font/google';
 import { site } from '../config/site';
 import { PAGE_SEO } from '../lib/seo';
 import { buildOrganizationSchema } from '../lib/schema';
 import '../styles/globals.css';
+
+const nunito = Nunito({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-nunito',
+  display: 'swap',
+});
+
+const raleway = Raleway({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-raleway',
+  display: 'swap',
+});
 
 export const metadata = {
   metadataBase: new URL(site.siteUrl),
@@ -47,13 +62,6 @@ export const metadata = {
     'geo.region': site.stateCode,
     'geo.placename': `${site.stateName}, ${site.country}`,
   },
-  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
-    ? {
-      verification: {
-        google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
-      },
-    }
-    : {}),
   ...(site.gscVerification ? { verification: { google: site.gscVerification } } : {}),
 };
 
@@ -68,17 +76,11 @@ export default function RootLayout({ children }) {
   const orgSchema = buildOrganizationSchema();
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${nunito.variable} ${raleway.variable}`}>
       <head>
         <link rel="icon" href={site.favicon} type="image/png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
 
-        {/* Google Ads */}
+        {/* Google Ads — loaded after page becomes interactive, not render-blocking */}
         {site.googleAdsId && (
           <>
             <Script
