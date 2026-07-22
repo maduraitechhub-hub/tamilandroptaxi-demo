@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { label: 'Book Taxi', href: '/book' },
   { label: 'Cities', href: '/cities' },
   { label: 'About Us', href: '/about' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Partner', href: '/partner' },
   { label: 'Contact', href: '/contact' },
 ];
