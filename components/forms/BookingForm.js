@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react';
 import { submitSiteForm } from '../../lib/submitSiteForm';
 import { fetchTripEstimate } from '../../lib/fetchTripEstimate';
-import { trackBookingStart, trackEstimateShown } from '../../lib/analytics';
+import { trackBookingStart, trackEstimateShown, trackFareCalculatorSubmit, trackBookingFormSubmit } from '../../lib/analytics';
 import FormFeedbackModal from '../ui/FormFeedbackModal';
 import PlacesAutocompleteInput from './PlacesAutocompleteInput';
 import TripEstimationPanel from './TripEstimationPanel';
@@ -73,6 +73,7 @@ export default function BookingForm({ compact = false }) {
 
     setEstimating(true);
     resetEstimate();
+    trackFareCalculatorSubmit(activeTab);
     try {
       const result = await fetchTripEstimate(estimatePayloadFromForm(form, activeTab));
       setEstimate(result);
@@ -95,6 +96,7 @@ export default function BookingForm({ compact = false }) {
     setConfirming(true);
     try {
       await submitSiteForm('booking', bookingPayloadFromForm(form, activeTab, estimate));
+      trackBookingFormSubmit({ tripType: activeTab, amount: estimate.totalAmount });
       form.reset();
       setFormKey((k) => k + 1);
       resetEstimate();
