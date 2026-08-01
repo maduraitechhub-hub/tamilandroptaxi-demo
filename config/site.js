@@ -25,8 +25,20 @@ export const DOMAIN_CONFIGS = {
     latitude: 9.9252,
     longitude: 78.1198,
     established: '2015',
+
+    // ── Google Ads Conversion Tracking ──────────────────────
     googleAdsId: 'AW-18280882706',
-    googleAdsConversionLabel: 'epMNCKKrw64cEKu8xddD',
+    conversionLabels: {
+      // ✅ CONFIRMED — this is the "Contact" action's real label
+      form: 'eJf5CIa989ccEJLEgI1E',
+
+      // ⚠️ REPLACE THESE — create new conversion actions in
+      // Google Ads (Website type) and paste their labels here.
+      // Until replaced, call/whatsapp conversions will NOT be tracked.
+      call: 'CALL_LABEL_HERE',
+      whatsapp: 'WHATSAPP_LABEL_HERE',
+    },
+
     gtmId: 'GTM-PS4X9TGN',
     ga4Id: process.env.NEXT_PUBLIC_GA4_ID || '',
     gscVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
