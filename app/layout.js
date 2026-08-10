@@ -3,6 +3,7 @@ import { Nunito, Raleway } from 'next/font/google';
 import { site } from '../config/site';
 import { PAGE_SEO } from '../lib/seo';
 import { buildOrganizationSchema } from '../lib/schema';
+import { Analytics } from '@vercel/analytics/next';
 import '../styles/globals.css';
 
 const nunito = Nunito({
@@ -133,6 +134,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   );
