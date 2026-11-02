@@ -152,6 +152,36 @@ export const CITIES = [
       { to: 'Bangalore', price: '₹3,200', km: '210 km' },
     ],
   },
+  {
+    slug: 'bangalore', name: 'Bangalore', displayName: 'Bangalore',
+    description: 'Long-distance destination from Madurai',
+    longDescription: 'Plan a long-distance taxi journey from Madurai to Bangalore. Share your exact pickup and drop locations to request a route-based fare estimate.',
+    image: '/images/tamilnadu-wide.png', routes: 1, popular: true, topRoutes: [],
+  },
+  {
+    slug: 'pondicherry', name: 'Pondicherry', displayName: 'Pondicherry',
+    description: 'Coastal destination from Madurai',
+    longDescription: 'Plan a one-way outstation taxi from Madurai to Pondicherry. Use the booking form to enter your exact locations and travel date.',
+    image: '/images/tamilnadu-wide.png', routes: 1, popular: true, topRoutes: [],
+  },
+  {
+    slug: 'tiruvannamalai', name: 'Tiruvannamalai', displayName: 'Tiruvannamalai',
+    description: 'Pilgrimage destination from Madurai',
+    longDescription: 'Book a long-distance taxi from Madurai to Tiruvannamalai. Enter your travel details to request an indicative fare and confirm availability.',
+    image: '/images/tamilnadu-wide.png', routes: 1, popular: true, topRoutes: [],
+  },
+  {
+    slug: 'tirupati', name: 'Tirupati', displayName: 'Tirupati',
+    description: 'Pilgrimage destination from Madurai',
+    longDescription: 'Plan your Madurai to Tirupati outstation journey with a one-way or round-trip taxi booking request.',
+    image: '/images/tamilnadu-wide.png', routes: 1, popular: true, topRoutes: [],
+  },
+  {
+    slug: 'tirunelveli', name: 'Tirunelveli', displayName: 'Tirunelveli',
+    description: 'South Tamil Nadu destination from Madurai',
+    longDescription: 'Request a taxi from Madurai to Tirunelveli. Add your exact pickup and destination details to receive a route-based estimate.',
+    image: '/images/tamilnadu-wide.png', routes: 1, popular: true, topRoutes: [],
+  }
 ];
 
 /** All city slugs — used for generateStaticParams */
@@ -183,7 +213,7 @@ export const POPULAR_ROUTES = [
     to: "Trichy",
     image: "/images/chn-trc.webp",
     km: "125 km",
-    description: "perfect for business meetings, temple visits, and quick one-way travel."
+    description: "A convenient one-way taxi route from Madurai to Trichy for business, temple visits and family travel."
   },
   {
     from: "Madurai",
@@ -197,7 +227,7 @@ export const POPULAR_ROUTES = [
     to: "Coimbatore",
     image: "/images/chn-cbe.webp",
     km: "211 km",
-    description: "Affordable Chennai to Coimbatore one way taxi service with no hidden charges."
+    description: "Comfortable one-way drop taxi from Madurai to Coimbatore for business and family travel."
   },
   {
     from: "Madurai",
@@ -211,7 +241,7 @@ export const POPULAR_ROUTES = [
     to: "Chennai",
     image: "/images/mdu-chn.webp",
     km: "465 km",
-    description: "Reliable Chennai to Madurai taxi service with comfortable rides across Tamil Nadu."
+    description: "Book a comfortable one-way drop taxi from Madurai to Chennai for business, family and airport connections."
   },
   {
     from: "Madurai",

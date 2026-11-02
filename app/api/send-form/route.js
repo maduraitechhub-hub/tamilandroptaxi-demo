@@ -93,6 +93,25 @@ export async function POST(request) {
 
       const tripTypeLabel =
         tripType === 'oneway' ? 'One way' : tripType === 'roundtrip' ? 'Round trip' : 'Rental';
+      const customerName = trim(payload.customerName, 200);
+      const phone = trim(payload.phone, 40);
+      const phoneDigits = phone.replace(/\D/g, '');
+      if (!customerName || phoneDigits.length < 10 || phoneDigits.length > 13) {
+        return NextResponse.json(
+          { ok: false, error: 'Please enter your name and a valid mobile number.' },
+          { status: 400 }
+        );
+      }
+
+      if (tripType === 'oneway' && (!trim(payload.pickup, 500) || !trim(payload.drop, 500))) {
+        return NextResponse.json({ ok: false, error: 'Pickup and destination are required.' }, { status: 400 });
+      }
+      if (tripType === 'roundtrip' && (!trim(payload.fromCity, 500) || !trim(payload.toCity, 500))) {
+        return NextResponse.json({ ok: false, error: 'From city and destination are required.' }, { status: 400 });
+      }
+      if (tripType === 'rental' && !trim(payload.rentalCity, 500)) {
+        return NextResponse.json({ ok: false, error: 'Rental city is required.' }, { status: 400 });
+      }
 
       subject = `[Website Booking] ${tripTypeLabel}`;
 

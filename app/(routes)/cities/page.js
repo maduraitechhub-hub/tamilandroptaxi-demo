@@ -50,7 +50,7 @@ export default function CitiesPage() {
         <div className="cities-wrapper">
 
           {ALL_CITIES_LIST.map((city) => (
-            <Link href="/book" className="city-card" key={city}>
+            <Link href={`/book?from=Madurai&to=${encodeURIComponent(city)}`} className="city-card" key={city}>
               <span className="city-icon">
                 <Image
                   src="/images/location-pin.png"

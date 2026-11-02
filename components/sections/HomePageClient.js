@@ -13,7 +13,6 @@ import StickyLeadBar from '../ui/StickyLeadBar';
 
 const BookingForm = dynamic(() => import('../forms/BookingForm'), {
   loading: () => <div className="form-skeleton">Loading booking form…</div>,
-  ssr: false,
 });
 
 const SERVICES = [
@@ -121,7 +120,7 @@ export default function HomePageClient() {
               Safe, Affordable <br /> Reliable Rides Across Tamil Nadu
             </h1>
             <p className="hero-sub">
-              Travel anywhere in Tamil Nadu or anywhere with Tamilan Drop Taxi, Madurai's trusted one-way taxi service since 2015. <br />Whether you're booking a Madurai to Chennai taxi, airport transfer, outstation cab, or one-way drop taxi, we offer transparent pricing <br /> with no return charges, experienced drivers, and 24/7 customer support.
+              Travel from Madurai to Chennai, Coimbatore, Trichy, Bangalore and other long-distance destinations with Tamilan Drop Taxi. <br />Whether you're booking a Madurai to Chennai taxi, airport transfer, outstation cab, or one-way drop taxi, we offer transparent pricing <br /> with no return charges, experienced drivers, and 24/7 customer support.
             </p>
             <div className="hero-actions">
               <a
@@ -141,6 +140,9 @@ export default function HomePageClient() {
               >
                 Book on WhatsApp
               </a>
+              <Link href="/book" className="btn-outline" title="Book a taxi online">
+                Book Online
+              </Link>
             </div>
           </div>
 
@@ -251,7 +253,7 @@ export default function HomePageClient() {
           </p>
           <div className="routes-grid">
             {POPULAR_ROUTES.map((r) => (
-              <Link key={`${r.from}-${r.to}`} href="/book" className="route-card">
+              <Link key={`${r.from}-${r.to}`} href={`/taxi/${r.to.toLowerCase().replace(/\s+/g, '-')}`} className="route-card">
                 <div className="route-img">
                   <Image
                     src={r.image}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { submitSiteForm } from '../../lib/submitSiteForm';
 import { fetchTripEstimate } from '../../lib/fetchTripEstimate';
 import { trackBookingStart, trackEstimateShown, trackFareCalculatorSubmit, trackBookingFormSubmit } from '../../lib/analytics';
@@ -48,14 +48,27 @@ function bookingPayloadFromForm(form, tripType, estimate) {
   };
 }
 
-export default function BookingForm({ compact = false }) {
+export default function BookingForm({ compact = false, defaultDrop = '' }) {
   const formRef = useRef(null);
   const [activeTab, setActiveTab] = useState('oneway');
   const [estimating, setEstimating] = useState(false);
   const [confirming, setConfirming] = useState(false);
   const [estimate, setEstimate] = useState(null);
   const [formKey, setFormKey] = useState(0);
+  const [routeDefaults, setRouteDefaults] = useState({ from: 'Madurai, Tamil Nadu, India', to: defaultDrop });
   const [modal, setModal] = useState({ open: false, variant: 'success', title: '', message: '' });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get('from');
+    const to = params.get('to');
+    if (from || to) {
+      setRouteDefaults({
+        from: from ? `${from}, Tamil Nadu, India` : 'Madurai, Tamil Nadu, India',
+        to: to ? `${to}, India` : defaultDrop,
+      });
+    }
+  }, [defaultDrop]);
 
   const closeModal = () => setModal((m) => ({ ...m, open: false }));
   const resetEstimate = () => setEstimate(null);
@@ -70,6 +83,10 @@ export default function BookingForm({ compact = false }) {
     e.preventDefault();
     const form = formRef.current;
     if (!form) return;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
     setEstimating(true);
     resetEstimate();
@@ -102,8 +119,8 @@ export default function BookingForm({ compact = false }) {
       resetEstimate();
       setModal({
         open: true, variant: 'success',
-        title: 'Booking Confirmed! 🎉',
-        message: `Your booking was sent. Estimated fare: ${estimate.totalAmountFormatted}. Our team will contact you shortly. WhatsApp: ${site.phoneDisplay}`,
+        title: 'Booking Request Sent! 🎉',
+        message: `Your booking request was sent. Estimated fare: ${estimate.totalAmountFormatted}. Our team will contact you shortly. WhatsApp: ${site.phoneDisplay}`,
       });
     } catch (err) {
       setModal({
@@ -149,11 +166,11 @@ export default function BookingForm({ compact = false }) {
             </div>
             <div className="form-group">
               <label htmlFor="phone">Mobile Number</label>
-              <input id="phone" type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required disabled={formDisabled} />
+              <input id="phone" type="tel" name="phone" placeholder="+91 XXXXX XXXXX" inputMode="tel" pattern="[+0-9 ()-]{10,16}" title="Enter a valid phone number" required disabled={formDisabled} />
             </div>
             <div className="form-group">
               <label>Pickup Location</label>
-              <PlacesAutocompleteInput key={`pickup-${formKey}`} name="pickup" placeholder="Enter pickup location" required disabled={formDisabled} />
+              <PlacesAutocompleteInput key={`pickup-${formKey}`} name="pickup" placeholder="Enter pickup location" required disabled={formDisabled} defaultValue={routeDefaults.from} />
             </div>
             <div className="form-group">
               <label>Drop Location</label>
@@ -188,15 +205,15 @@ export default function BookingForm({ compact = false }) {
             </div>
             <div className="form-group">
               <label>Mobile Number</label>
-              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required disabled={formDisabled} />
+              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" inputMode="tel" pattern="[+0-9 ()-]{10,16}" title="Enter a valid phone number" required disabled={formDisabled} />
             </div>
             <div className="form-group">
               <label>From City</label>
-              <PlacesAutocompleteInput key={`from-${formKey}`} name="fromCity" mode="city" placeholder="Enter from city" required disabled={formDisabled} />
+              <PlacesAutocompleteInput key={`from-${formKey}`} name="fromCity" mode="city" placeholder="Enter from city" required disabled={formDisabled} defaultValue={routeDefaults.from} />
             </div>
             <div className="form-group">
               <label>To City</label>
-              <PlacesAutocompleteInput key={`to-${formKey}`} name="toCity" mode="city" placeholder="Enter to city" required disabled={formDisabled} />
+              <PlacesAutocompleteInput key={`to-${formKey}`} name="toCity" mode="city" placeholder="Enter to city" required disabled={formDisabled} defaultValue={routeDefaults.to} />
             </div>
             <div className="form-group">
               <label>Vehicle Type</label>
@@ -227,7 +244,7 @@ export default function BookingForm({ compact = false }) {
           <div className="form-grid">
             <div className="form-group">
               <label>City / Area</label>
-              <PlacesAutocompleteInput key={`rental-${formKey}`} name="rentalCity" placeholder="Enter city or area" required disabled={formDisabled} />
+              <PlacesAutocompleteInput key={`rental-${formKey}`} name="rentalCity" placeholder="Enter city or area" required disabled={formDisabled} defaultValue="Madurai, Tamil Nadu, India" />
             </div>
             <div className="form-group">
               <label>Vehicle Type</label>
@@ -254,7 +271,7 @@ export default function BookingForm({ compact = false }) {
             </div>
             <div className="form-group">
               <label>Mobile Number</label>
-              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required disabled={formDisabled} />
+              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" inputMode="tel" pattern="[+0-9 ()-]{10,16}" title="Enter a valid phone number" required disabled={formDisabled} />
             </div>
             <div className="form-group">
               <label>Pickup Date</label>

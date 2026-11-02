@@ -28,12 +28,13 @@ export default function PlacesAutocompleteInput({
   disabled = false,
   mode = 'address',
   className = '',
+  defaultValue = '',
 }) {
   const hostRef = useRef(null);
   const widgetRef = useRef(null);
   const hiddenRef = useRef(null);
   const [useFallback, setUseFallback] = useState(() => !getGoogleMapsApiKey());
-  const [text, setText] = useState('');
+  const [text, setText] = useState(defaultValue);
 
   useEffect(() => {
     if (useFallback || !hostRef.current) return undefined;
@@ -61,6 +62,7 @@ export default function PlacesAutocompleteInput({
 
         const widget = new PlaceAutocompleteElement(options);
         if (placeholder) widget.placeholder = placeholder;
+        if (defaultValue) widget.value = defaultValue;
 
         hostRef.current.replaceChildren(widget);
         widgetRef.current = widget;
@@ -103,7 +105,14 @@ export default function PlacesAutocompleteInput({
       widgetRef.current = null;
       hostRef.current?.replaceChildren();
     };
-  }, [useFallback, placeholder, mode, disabled]);
+  }, [useFallback, placeholder, mode, disabled, defaultValue]);
+
+  useEffect(() => {
+    setText(defaultValue);
+    if (widgetRef.current && defaultValue) {
+      widgetRef.current.value = defaultValue;
+    }
+  }, [defaultValue]);
 
   useEffect(() => {
     if (widgetRef.current) {
@@ -136,6 +145,8 @@ export default function PlacesAutocompleteInput({
         required={required}
         disabled={disabled}
         autoComplete="off"
+        value={text}
+        onChange={(event) => setText(event.target.value)}
       />
     );
   }

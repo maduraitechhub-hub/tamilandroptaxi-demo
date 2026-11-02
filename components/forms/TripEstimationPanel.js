@@ -66,7 +66,7 @@ export default function TripEstimationPanel({
               onClick={onConfirm}
               disabled={confirming}
             >
-              {confirming ? 'Sending…' : 'Confirm Booking'}
+              {confirming ? 'Sending…' : 'Send Booking Request'}
             </button>
           </div>
         </>

@@ -8,7 +8,7 @@ const SERVICES = [
   { label: 'One-Way Drop Taxi',          href: '/book'                          },
   { label: 'Outstation Cab Booking',     href: '/book'                          },
   { label: 'Airport Taxi Service',       href: '/book'                          },
-  { label: 'Madurai Local & Round Trip', href: '/madurai-local-round-trip-taxi' },
+  { label: 'Madurai Local & Round Trip', href: '/book' },
   { label: 'Driver Partner Programme',   href: '/partner'                       },
 ];
 
@@ -22,12 +22,12 @@ const QUICK_LINKS = [
 ];
 
 const TOP_ROUTES = [
-  { label: 'Madurai → Chennai',    href: '/book'    },
-  { label: 'Madurai → Coimbatore', href: '/book' },
-  { label: 'Madurai → Trichy',     href: '/book'     },
-  { label: 'Madurai → Bangalore',    href: '/book'    },
-  { label: 'Madurai → Tirunalveli', href: '/book'    },
-  { label: 'Madurai → Pondicherry',     href: '/book'    },
+  { label: 'Madurai → Chennai',    href: '/taxi/chennai'    },
+  { label: 'Madurai → Coimbatore', href: '/taxi/coimbatore' },
+  { label: 'Madurai → Trichy',     href: '/taxi/trichy'     },
+  { label: 'Madurai → Bangalore',    href: '/book?from=Madurai&to=Bangalore'    },
+  { label: 'Madurai → Tirunelveli', href: '/book?from=Madurai&to=Tirunelveli'    },
+  { label: 'Madurai → Pondicherry',     href: '/book?from=Madurai&to=Pondicherry'    },
 ];
 
 export default function Footer() {

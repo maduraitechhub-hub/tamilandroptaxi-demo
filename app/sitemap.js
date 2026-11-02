@@ -21,7 +21,7 @@ export default function sitemap() {
     priority,
   }));
 
-  const cityEntries = CITY_SLUGS.map((slug) => ({
+  const cityEntries = CITY_SLUGS.filter((slug) => slug !== 'madurai').map((slug) => ({
     url:              `${SITE_URL}/taxi/${slug}`,
     lastModified:     new Date(),
     changeFrequency:  'weekly',
