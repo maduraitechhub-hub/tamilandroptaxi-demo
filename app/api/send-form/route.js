@@ -70,7 +70,9 @@ export async function POST(request) {
       const subjectLine = trim(payload.subject, 200);
       const message = trim(payload.message, MAX);
 
-      if (!customerName || !phone || !subjectLine || !message) {
+      const phoneDigits = phone.replace(/\D/g, '');
+      const indianMobile = phoneDigits.length === 12 && phoneDigits.startsWith('91') ? phoneDigits.slice(2) : phoneDigits;
+      if (!customerName || !/^[6-9]\d{9}$/.test(indianMobile) || !subjectLine || !message) {
         return NextResponse.json(
           { ok: false, error: 'Name, phone, subject, and message are required.' },
           { status: 400 }
@@ -91,27 +93,37 @@ export async function POST(request) {
         return NextResponse.json({ ok: false, error: 'Invalid trip type.' }, { status: 400 });
       }
 
-      const tripTypeLabel =
-        tripType === 'oneway' ? 'One way' : tripType === 'roundtrip' ? 'Round trip' : 'Rental';
       const customerName = trim(payload.customerName, 200);
       const phone = trim(payload.phone, 40);
       const phoneDigits = phone.replace(/\D/g, '');
-      if (!customerName || phoneDigits.length < 10 || phoneDigits.length > 13) {
+      const indianMobile = phoneDigits.length === 12 && phoneDigits.startsWith('91')
+        ? phoneDigits.slice(2)
+        : phoneDigits;
+      if (!customerName || !/^[6-9]\d{9}$/.test(indianMobile)) {
         return NextResponse.json(
-          { ok: false, error: 'Please enter your name and a valid mobile number.' },
+          { ok: false, error: 'Please provide your name and a valid 10-digit Indian mobile number.' },
           { status: 400 }
         );
       }
 
-      if (tripType === 'oneway' && (!trim(payload.pickup, 500) || !trim(payload.drop, 500))) {
-        return NextResponse.json({ ok: false, error: 'Pickup and destination are required.' }, { status: 400 });
+      const requiredFields = tripType === 'oneway'
+        ? ['pickup', 'drop', 'pickupDate', 'pickupTime']
+        : tripType === 'roundtrip'
+          ? ['fromCity', 'toCity', 'pickupDate', 'pickupTime', 'returnDate']
+          : ['rentalCity', 'rentalPackage', 'pickupDate', 'pickupTime'];
+      const missingField = requiredFields.find((key) => !trim(payload[key], 500));
+      if (missingField) {
+        return NextResponse.json(
+          { ok: false, error: `Missing required booking detail: ${missingField}.` },
+          { status: 400 }
+        );
       }
-      if (tripType === 'roundtrip' && (!trim(payload.fromCity, 500) || !trim(payload.toCity, 500))) {
-        return NextResponse.json({ ok: false, error: 'From city and destination are required.' }, { status: 400 });
+      if (payload.returnDate && payload.pickupDate && trim(payload.returnDate, 20) < trim(payload.pickupDate, 20)) {
+        return NextResponse.json({ ok: false, error: 'Return date cannot be earlier than pickup date.' }, { status: 400 });
       }
-      if (tripType === 'rental' && !trim(payload.rentalCity, 500)) {
-        return NextResponse.json({ ok: false, error: 'Rental city is required.' }, { status: 400 });
-      }
+
+      const tripTypeLabel =
+        tripType === 'oneway' ? 'One way' : tripType === 'roundtrip' ? 'Round trip' : 'Rental';
 
       subject = `[Website Booking] ${tripTypeLabel}`;
 
@@ -153,7 +165,9 @@ export async function POST(request) {
       const experience = trim(payload.experience, 120);
       const notes = trim(payload.notes, MAX);
 
-      if (!fullName || !phone) {
+      const phoneDigits = phone.replace(/\D/g, '');
+      const indianMobile = phoneDigits.length === 12 && phoneDigits.startsWith('91') ? phoneDigits.slice(2) : phoneDigits;
+      if (!fullName || !/^[6-9]\d{9}$/.test(indianMobile)) {
         return NextResponse.json(
           { ok: false, error: 'Name and phone are required.' },
           { status: 400 }

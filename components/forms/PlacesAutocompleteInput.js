@@ -28,13 +28,12 @@ export default function PlacesAutocompleteInput({
   disabled = false,
   mode = 'address',
   className = '',
-  defaultValue = '',
 }) {
   const hostRef = useRef(null);
   const widgetRef = useRef(null);
   const hiddenRef = useRef(null);
   const [useFallback, setUseFallback] = useState(() => !getGoogleMapsApiKey());
-  const [text, setText] = useState(defaultValue);
+  const [text, setText] = useState('');
 
   useEffect(() => {
     if (useFallback || !hostRef.current) return undefined;
@@ -62,7 +61,6 @@ export default function PlacesAutocompleteInput({
 
         const widget = new PlaceAutocompleteElement(options);
         if (placeholder) widget.placeholder = placeholder;
-        if (defaultValue) widget.value = defaultValue;
 
         hostRef.current.replaceChildren(widget);
         widgetRef.current = widget;
@@ -76,22 +74,19 @@ export default function PlacesAutocompleteInput({
 
         const onInput = () => syncText(readWidgetText(widget));
 
-        widget.addEventListener('input', onInput);
-        widget.addEventListener('gmp-select', async ({ placePrediction }) => {
+        const onSelect = async ({ placePrediction }) => {
           try {
             const place = placePrediction.toPlace();
-            await place.fetchFields({
-              fields: ['displayName', 'formattedAddress'],
-            });
-            const label =
-              place.formattedAddress || place.displayName || readWidgetText(widget);
+            await place.fetchFields({ fields: ['displayName', 'formattedAddress'] });
+            const label = place.formattedAddress || place.displayName || readWidgetText(widget);
             syncText(label);
           } catch {
             syncText(readWidgetText(widget));
           }
-        });
+        };
 
-        if (disabled) widget.disabled = true;
+        widget.addEventListener('input', onInput);
+        widget.addEventListener('gmp-select', onSelect);
       } catch (err) {
         console.warn('Google Places autocomplete unavailable:', err);
         if (!cancelled) setUseFallback(true);
@@ -105,14 +100,7 @@ export default function PlacesAutocompleteInput({
       widgetRef.current = null;
       hostRef.current?.replaceChildren();
     };
-  }, [useFallback, placeholder, mode, disabled, defaultValue]);
-
-  useEffect(() => {
-    setText(defaultValue);
-    if (widgetRef.current && defaultValue) {
-      widgetRef.current.value = defaultValue;
-    }
-  }, [defaultValue]);
+  }, [useFallback, placeholder, mode]);
 
   useEffect(() => {
     if (widgetRef.current) {
@@ -145,8 +133,6 @@ export default function PlacesAutocompleteInput({
         required={required}
         disabled={disabled}
         autoComplete="off"
-        value={text}
-        onChange={(event) => setText(event.target.value)}
       />
     );
   }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { submitSiteForm } from '../../lib/submitSiteForm';
 import { fetchTripEstimate } from '../../lib/fetchTripEstimate';
 import { trackBookingStart, trackEstimateShown, trackFareCalculatorSubmit, trackBookingFormSubmit } from '../../lib/analytics';
@@ -48,27 +48,46 @@ function bookingPayloadFromForm(form, tripType, estimate) {
   };
 }
 
-export default function BookingForm({ compact = false, defaultDrop = '' }) {
+function validateBookingForm(form, tripType) {
+  const data = Object.fromEntries(new FormData(form).entries());
+  const required = ['customerName', 'phone'];
+  if (tripType === 'oneway') required.push('pickup', 'drop', 'pickupDate', 'pickupTime');
+  if (tripType === 'roundtrip') required.push('fromCity', 'toCity', 'pickupDate', 'pickupTime', 'returnDate');
+  if (tripType === 'rental') required.push('rentalCity', 'rentalPackage', 'pickupDate', 'pickupTime');
+
+  const missing = required.find((key) => !String(data[key] || '').trim());
+  if (missing) {
+    const labels = {
+      customerName: 'Please enter your name.', phone: 'Please enter your mobile number.',
+      pickup: 'Please select a pickup location.', drop: 'Please select a destination.',
+      fromCity: 'Please select the starting city.', toCity: 'Please select the destination city.',
+      rentalCity: 'Please enter the rental city or area.', rentalPackage: 'Please select a rental package.',
+      pickupDate: 'Please select the pickup date.', pickupTime: 'Please select the pickup time.',
+      returnDate: 'Please select the return date.',
+    };
+    throw new Error(labels[missing] || 'Please complete all required fields.');
+  }
+
+  const digits = String(data.phone).replace(/\D/g, '');
+  const mobile = digits.length === 12 && digits.startsWith('91') ? digits.slice(2) : digits;
+  if (!/^[6-9]\d{9}$/.test(mobile)) {
+    throw new Error('Please enter a valid 10-digit Indian mobile number.');
+  }
+
+  if (data.pickupDate && data.returnDate && data.returnDate < data.pickupDate) {
+    throw new Error('Return date cannot be earlier than pickup date.');
+  }
+  return data;
+}
+
+export default function BookingForm({ compact = false }) {
   const formRef = useRef(null);
   const [activeTab, setActiveTab] = useState('oneway');
   const [estimating, setEstimating] = useState(false);
   const [confirming, setConfirming] = useState(false);
   const [estimate, setEstimate] = useState(null);
   const [formKey, setFormKey] = useState(0);
-  const [routeDefaults, setRouteDefaults] = useState({ from: 'Madurai, Tamil Nadu, India', to: defaultDrop });
   const [modal, setModal] = useState({ open: false, variant: 'success', title: '', message: '' });
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const from = params.get('from');
-    const to = params.get('to');
-    if (from || to) {
-      setRouteDefaults({
-        from: from ? `${from}, Tamil Nadu, India` : 'Madurai, Tamil Nadu, India',
-        to: to ? `${to}, India` : defaultDrop,
-      });
-    }
-  }, [defaultDrop]);
 
   const closeModal = () => setModal((m) => ({ ...m, open: false }));
   const resetEstimate = () => setEstimate(null);
@@ -83,8 +102,10 @@ export default function BookingForm({ compact = false, defaultDrop = '' }) {
     e.preventDefault();
     const form = formRef.current;
     if (!form) return;
-    if (!form.checkValidity()) {
-      form.reportValidity();
+    try {
+      validateBookingForm(form, activeTab);
+    } catch (validationError) {
+      setModal({ open: true, variant: 'error', title: 'Check your booking details', message: validationError.message });
       return;
     }
 
@@ -110,6 +131,12 @@ export default function BookingForm({ compact = false, defaultDrop = '' }) {
   const handleConfirmBooking = async () => {
     const form = formRef.current;
     if (!form || !estimate) return;
+    try {
+      validateBookingForm(form, activeTab);
+    } catch (validationError) {
+      setModal({ open: true, variant: 'error', title: 'Check your booking details', message: validationError.message });
+      return;
+    }
     setConfirming(true);
     try {
       await submitSiteForm('booking', bookingPayloadFromForm(form, activeTab, estimate));
@@ -120,7 +147,7 @@ export default function BookingForm({ compact = false, defaultDrop = '' }) {
       setModal({
         open: true, variant: 'success',
         title: 'Booking Request Sent! 🎉',
-        message: `Your booking request was sent. Estimated fare: ${estimate.totalAmountFormatted}. Our team will contact you shortly. WhatsApp: ${site.phoneDisplay}`,
+        message: `Your booking was sent. Estimated fare: ${estimate.totalAmountFormatted}. Our team will contact you shortly. WhatsApp: ${site.phoneDisplay}`,
       });
     } catch (err) {
       setModal({
@@ -162,15 +189,15 @@ export default function BookingForm({ compact = false, defaultDrop = '' }) {
           <div className="form-grid">
             <div className="form-group">
               <label htmlFor="customerName">Full Name</label>
-              <input id="customerName" type="text" name="customerName" placeholder="Enter your name" required disabled={formDisabled} />
+              <input id="customerName" type="text" name="customerName" placeholder="Enter your name" autoComplete="name" required disabled={formDisabled} />
             </div>
             <div className="form-group">
               <label htmlFor="phone">Mobile Number</label>
-              <input id="phone" type="tel" name="phone" placeholder="+91 XXXXX XXXXX" inputMode="tel" pattern="[+0-9 ()-]{10,16}" title="Enter a valid phone number" required disabled={formDisabled} />
+              <input id="phone" type="tel" name="phone" placeholder="+91 XXXXX XXXXX" inputMode="tel" autoComplete="tel" required disabled={formDisabled} />
             </div>
             <div className="form-group">
               <label>Pickup Location</label>
-              <PlacesAutocompleteInput key={`pickup-${formKey}`} name="pickup" placeholder="Enter pickup location" required disabled={formDisabled} defaultValue={routeDefaults.from} />
+              <PlacesAutocompleteInput key={`pickup-${formKey}`} name="pickup" placeholder="Enter pickup location" required disabled={formDisabled} />
             </div>
             <div className="form-group">
               <label>Drop Location</label>
@@ -187,7 +214,7 @@ export default function BookingForm({ compact = false, defaultDrop = '' }) {
             </div>
             <div className="form-group">
               <label htmlFor="pickupDate">Pickup Date</label>
-              <input id="pickupDate" type="date" name="pickupDate" required disabled={formDisabled} min={new Date().toISOString().split('T')[0]} />
+              <input id="pickupDate" type="date" name="pickupDate" required disabled={formDisabled} min={new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10)} />
             </div>
             <div className="form-group">
               <label htmlFor="pickupTime">Pickup Time</label>
@@ -201,19 +228,19 @@ export default function BookingForm({ compact = false, defaultDrop = '' }) {
           <div className="form-grid">
             <div className="form-group">
               <label>Full Name</label>
-              <input type="text" name="customerName" placeholder="Enter your name" required disabled={formDisabled} />
+              <input type="text" name="customerName" placeholder="Enter your name" autoComplete="name" required disabled={formDisabled} />
             </div>
             <div className="form-group">
               <label>Mobile Number</label>
-              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" inputMode="tel" pattern="[+0-9 ()-]{10,16}" title="Enter a valid phone number" required disabled={formDisabled} />
+              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" inputMode="tel" autoComplete="tel" required disabled={formDisabled} />
             </div>
             <div className="form-group">
               <label>From City</label>
-              <PlacesAutocompleteInput key={`from-${formKey}`} name="fromCity" mode="city" placeholder="Enter from city" required disabled={formDisabled} defaultValue={routeDefaults.from} />
+              <PlacesAutocompleteInput key={`from-${formKey}`} name="fromCity" mode="city" placeholder="Enter from city" required disabled={formDisabled} />
             </div>
             <div className="form-group">
               <label>To City</label>
-              <PlacesAutocompleteInput key={`to-${formKey}`} name="toCity" mode="city" placeholder="Enter to city" required disabled={formDisabled} defaultValue={routeDefaults.to} />
+              <PlacesAutocompleteInput key={`to-${formKey}`} name="toCity" mode="city" placeholder="Enter to city" required disabled={formDisabled} />
             </div>
             <div className="form-group">
               <label>Vehicle Type</label>
@@ -226,7 +253,7 @@ export default function BookingForm({ compact = false, defaultDrop = '' }) {
             </div>
             <div className="form-group">
               <label>Pickup Date</label>
-              <input type="date" name="pickupDate" required disabled={formDisabled} min={new Date().toISOString().split('T')[0]} />
+              <input type="date" name="pickupDate" required disabled={formDisabled} min={new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10)} />
             </div>
             <div className="form-group">
               <label>Pickup Time</label>
@@ -234,7 +261,7 @@ export default function BookingForm({ compact = false, defaultDrop = '' }) {
             </div>
             <div className="form-group">
               <label>Return Date</label>
-              <input type="date" name="returnDate" required disabled={formDisabled} min={new Date().toISOString().split('T')[0]} />
+              <input type="date" name="returnDate" required disabled={formDisabled} min={new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10)} />
             </div>
           </div>
         )}
@@ -244,7 +271,7 @@ export default function BookingForm({ compact = false, defaultDrop = '' }) {
           <div className="form-grid">
             <div className="form-group">
               <label>City / Area</label>
-              <PlacesAutocompleteInput key={`rental-${formKey}`} name="rentalCity" placeholder="Enter city or area" required disabled={formDisabled} defaultValue="Madurai, Tamil Nadu, India" />
+              <PlacesAutocompleteInput key={`rental-${formKey}`} name="rentalCity" placeholder="Enter city or area" required disabled={formDisabled} />
             </div>
             <div className="form-group">
               <label>Vehicle Type</label>
@@ -267,15 +294,15 @@ export default function BookingForm({ compact = false, defaultDrop = '' }) {
             </div>
             <div className="form-group">
               <label>Full Name</label>
-              <input type="text" name="customerName" placeholder="Enter your name" required disabled={formDisabled} />
+              <input type="text" name="customerName" placeholder="Enter your name" autoComplete="name" required disabled={formDisabled} />
             </div>
             <div className="form-group">
               <label>Mobile Number</label>
-              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" inputMode="tel" pattern="[+0-9 ()-]{10,16}" title="Enter a valid phone number" required disabled={formDisabled} />
+              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" inputMode="tel" autoComplete="tel" required disabled={formDisabled} />
             </div>
             <div className="form-group">
               <label>Pickup Date</label>
-              <input type="date" name="pickupDate" required disabled={formDisabled} min={new Date().toISOString().split('T')[0]} />
+              <input type="date" name="pickupDate" required disabled={formDisabled} min={new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10)} />
             </div>
             <div className="form-group">
               <label>Pickup Time</label>
