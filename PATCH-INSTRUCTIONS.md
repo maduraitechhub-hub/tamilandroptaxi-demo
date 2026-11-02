@@ -27,6 +27,12 @@ The existing central config already uses:
 
 Homepage, contact page, footer, sticky call/WhatsApp actions and route pages read these values from `config/site.js`. No old Pudukkottai address or Chennai-based company wording was found in the supplied source tree. The old number `7708015319` was also not present.
 
+## Google Search Console HTML verification
+
+- Added `public/googlea2a238d4dd103540.html` using the exact verification file uploaded for this site.
+- After deployment, confirm this URL opens directly: `https://tamilandroptaxi.com/googlea2a238d4dd103540.html`.
+- Then return to Google Search Console and click **Verify** for the matching HTML-file verification method. Do not rename the file or edit its contents. Keep it in `public/` for future re-verification.
+
 ## Required deployment configuration
 
 Set these environment variables in your hosting provider (do not commit secrets):
